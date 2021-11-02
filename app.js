@@ -25,12 +25,12 @@ main.appendChild(list);
 // this idcounter is a connecting bridge between several element and use it when we want to do an event.
 let idCounter = 0;
 addBtn.addEventListener("click", () => addNewTask(userInput.value));
-if(localStorage.getItem("toDoList") !== null){
+if(localStorage.getItem("toDoList")!== null){
   toDoList = JSON.parse(localStorage.getItem("toDoList"));
   showToDoList();
 }
 function showToDoList() {
-  list.textContent = "";
+   list.textContent = "";
   for (let index = 0; index < toDoList.length; index++) {
     let li = document.createElement("li");
     li.id = toDoList[index].id; //usage of idcounter
@@ -64,7 +64,7 @@ function changeStatus() {
   let inputID = this.id;
   let li = document.getElementById(inputID);
   // toDoList[inputID].setStatus();
-  console.log( toDoList[inputID].status);
+  // console.log( toDoList[inputID].status);
   if( toDoList[inputID].status == false){
     toDoList[inputID].status = true;
     li.style.backgroundColor="red";
